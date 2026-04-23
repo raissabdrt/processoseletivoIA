@@ -52,8 +52,6 @@ O DRQ foi escolhido como arquivo principal por ser mais compatível com microcon
 - Modelo DRQ: `model.tflite` (aproximadamente 70% menor que o original)
 - Modelo Float16: `model_fp16.tflite` (aproximadamente 50% menor que o original)
 
-A acurácia de ~98% indica que o modelo classifica corretamente quase todos os dígitos. O loss baixo confirma que o erro médio das previsões é pequeno, o que é esperado para o MNIST com uma CNN bem configurada.
-
 
 # Comentários
 
