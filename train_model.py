@@ -30,7 +30,7 @@ model = keras.Sequential([
 
     # achata pra entrar na camada densa
     layers.Flatten(),
-    layers.Dense(64, activation="relu"), 
+    layers.Dense(64, activation="relu"),
     layers.Dropout(0.3),
 
     # saída com 10 classes (dígitos de 0 a 9)
@@ -55,10 +55,15 @@ model.fit(
     verbose=1
 )
 
-# avaliando no conjunto de teste
+# avaliando no conjunto de teste com duas métricas: loss e accuracy
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
-print(f"\nAcurácia final no conjunto de teste: {test_acc * 100:.2f}%")
+
+print(f"\nResultados no conjunto de teste:")
+print(f"  Acurácia : {test_acc * 100:.2f}%")
+print(f"  Loss     : {test_loss:.4f}")
+print(f"\n  A acurácia indica o percentual de dígitos classificados corretamente.")
+print(f"  O loss indica o erro médio do modelo — quanto menor, melhor.")
 
 # salvando o modelo
 model.save("model.h5")
-print("Modelo salvo em model.h5")
+print("\nModelo salvo em model.h5")
