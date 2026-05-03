@@ -1,58 +1,45 @@
-name: Validação Automática do Desafio Edge AI
-
+name: Validacao Automatica do Desafio Edge AI
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   validate:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Clona o repositório do candidato
-      - name: Checkout do repositório
+      - name: Checkout do repositorio
         uses: actions/checkout@v4
 
-      # 2️⃣ Configura o ambiente Python
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
-      # 3️⃣ Instala as dependências do projeto
-      - name: Instalar dependências
+      - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4️⃣ Executa o script de treinamento
       - name: Executar treinamento do modelo
-        run: |
-          python train_model.py
+        run: python train_model.py
 
-      # 5️⃣ Verifica se o modelo treinado foi gerado
-      - name: Verificar geração do modelo .h5
+      - name: Verificar geracao do modelo .h5
         run: |
           if [ ! -f model.h5 ]; then
-            echo "❌ Arquivo model.h5 não encontrado."
+            echo "Arquivo model.h5 nao encontrado."
             exit 1
           fi
 
-      # 6️⃣ Executa o script de otimização/conversão
-      - name: Executar otimização do modelo
-        run: |
-          python optimize_model.py
+      - name: Executar otimizacao do modelo
+        run: python optimize_model.py
 
-      # 7️⃣ Verifica se o modelo otimizado foi gerado
-      - name: Verificar geração do modelo .tflite
+      - name: Verificar geracao do modelo .tflite
         run: |
           if [ ! -f model.tflite ]; then
-            echo "❌ Arquivo model.tflite não encontrado."
+            echo "Arquivo model.tflite nao encontrado."
             exit 1
           fi
 
-      # 8️⃣ Finalização
-      - name: Finalização
-        run: echo "✅ Desafio executado com sucesso!"
+      - name: Finalizacao
+        run: echo "Desafio executado com sucesso!"
