@@ -46,12 +46,10 @@ O DRQ foi escolhido como arquivo principal por ser mais compatível com microcon
 
 # Resultados
 
-- Acurácia no conjunto de teste: ~98%
-- Loss no conjunto de teste: ~0.06
-- Arquivo gerado: `model.h5`
-- Modelo DRQ: `model.tflite` (aproximadamente 70% menor que o original)
-- Modelo Float16: `model_fp16.tflite` (aproximadamente 50% menor que o original)
-
+- Modelo DRQ: model.tflite (91.4% menor que o original)
+- Modelo Float16: model_fp16.tflite (83.4% menor que o original)
+- Acurácia no conjunto de teste: 99.10%
+- Loss no conjunto de teste: 0.0297
 
 # Comentários
 
